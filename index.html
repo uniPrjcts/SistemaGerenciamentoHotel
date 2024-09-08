@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gerenciamento de Hotel</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <h1>Reservas</h1>
-    <form>
-        <p><input type="text" name="nomeCompleto" placeholder="Nome Completo" required></p>
-        <p><input type="email" name="email" placeholder="E-mail" required></p>
-        <p><input type="text" name="telefone" placeholder="Telefone" required></p>
-        <p>Checkin: <input type="date" name="checkin" required></p>
-        <p>Checkout: <input type="date" name="checkout" required></p>
-        <select name="tipo" id="tipo" required>
-            <option value="suite">Suite</option>
-            <option value="luxo">Luxo</option>
-            <option value="executivo">Executivo</option>
-        </select>
-        <p><input type="number" name="adultoQtd" placeholder="Número de adultos" required min="0"></p>
-        <p><input type="number" name="criancaQtd" placeholder="Número de crianças" required min="0"></p>
-        <p><input type="submit" value="Enviar"></p>
-    </form>
+    <p><a href="loginfuncionario.html">Login Funcionário</a></p>
+    <div class="center">
+        <h1>Reservas</h1>
+        <form method="post">
+            <p><input type="text" name="nomeCompleto" placeholder="Nome Completo" required></p>
+            <p><input type="email" name="email" placeholder="E-mail" required></p>
+            <p><input type="text" name="telefone" placeholder="Telefone" required></p>
+            <p>Checkin: <input type="date" name="checkin" required></p>
+            <p>Checkout: <input type="date" name="checkout" required></p>
+            <select name="tipo" id="tipo" required>
+                <option value="suite">Suite</option>
+                <option value="luxo">Luxo</option>
+                <option value="executivo">Executivo</option>
+            </select>
+            <p><input type="number" name="adultoQtd" placeholder="Número de adultos" required min="0"></p>
+            <p><input type="number" name="criancaQtd" placeholder="Número de crianças" required min="0"></p>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>
