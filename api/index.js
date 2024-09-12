@@ -6,13 +6,14 @@ import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
 import quartosRoute from "./routes/quartos.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 // Utilização do dotenv para ocultar informações sensíveis
 dotenv.config();
 
 // Conexão inicial a database no mongo
-const connect = async ()=>{
+const connect = async ()=> {
     try {
         await mongoose.connect(process.env.MONGO);
         console.log("Conectado ao Mongo");
@@ -20,6 +21,14 @@ const connect = async ()=>{
         throw error;
     }
 };
+
+const corsOptions = {
+    origin: "http://localhost:5173",
+    credentials: true,
+    optionsSuccessStatus: 200
+  };
+
+  app.use(cors(corsOptions));
 
 // Middlewares
 app.use(cookieParser());

@@ -1,5 +1,5 @@
 import express from "express";
-import { atualizarQuarto, criarQuarto, deletarQuarto, getQuarto, getQuartos } from "../controllers/quartos.js";
+import { atualizarQuarto, atualizarQuartoDisponibilidade, criarQuarto, deletarQuarto, getQuarto, getQuartos } from "../controllers/quartos.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
@@ -8,6 +8,7 @@ const router = express.Router();
 router.post("/:hotelid", verifyAdmin, criarQuarto);
 // Atualizar hotel
 router.put("/:id", verifyAdmin, atualizarQuarto);
+router.put("/disponibilidade/:id", atualizarQuartoDisponibilidade);
 // Deletar hotel
 router.delete("/:id/:hotelid", verifyAdmin, deletarQuarto);
 // Get Hotel

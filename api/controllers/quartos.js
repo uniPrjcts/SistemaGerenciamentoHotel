@@ -31,6 +31,33 @@ export const atualizarQuarto = async (req, res, next) => {
     }
 };
 
+export const atualizarQuartoDisponibilidade = async (req, res, next) => {
+    try {
+        const resultado = await Quarto.updateOne(
+            { _id: req.params.id },
+            {
+                $push: {
+                    "numeros_quartos.$[].datasOcupado": {
+                        $each: req.body.dates
+                    }
+                }
+            }
+        );
+
+        if (resultado.matchedCount === 0) {
+            return res.status(404).json({ message: "Quarto não encontrado" });
+        }
+
+        if (resultado.modifiedCount === 0) {
+            return res.status(400).json({ message: "Nenhuma atualização foi feita" });
+        }
+
+        res.status(200).json({ message: "Disponibilidade do quarto atualizada com sucesso" });
+    } catch (error) {
+        next(error);
+    }
+};
+
 export const deletarQuarto = async (req, res, next) => {
     const hotelId = req.params.hotelid;
     try {
