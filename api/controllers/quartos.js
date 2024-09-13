@@ -33,12 +33,18 @@ export const atualizarQuarto = async (req, res, next) => {
 
 export const atualizarQuartoDisponibilidade = async (req, res, next) => {
     try {
+        const { datasOcupado } = req.body;
+
+        if (!Array.isArray(datasOcupado) || datasOcupado.length === 0) {
+            return res.status(400).json({ message: "datasOcupado deve ser um array não vazio de datas" });
+        }
+
         const resultado = await Quarto.updateOne(
             { _id: req.params.id },
             {
                 $push: {
-                    "numeros_quartos.$[].datasOcupado": {
-                        $each: req.body.dates
+                    datasOcupado: {
+                        $each: datasOcupado
                     }
                 }
             }

@@ -17,7 +17,15 @@ const QuartoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    numeros_quartos: [{numero: Number, datasOcupado: {type: [Date]}}],
+    numeroQuarto: {
+        type: Number,
+        required: true,
+        unique: true
+    },
+    datasOcupado: {
+        type: [Date],
+        default: []
+    },
 },
 {timestamps: true});
 
