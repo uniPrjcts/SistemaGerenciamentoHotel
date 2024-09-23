@@ -76,6 +76,53 @@ Para atualizar seu repositório local com as alterações mais recentes, utilize
 git pull origin main
 ```
 
+### Criando a branch da feature
+
+Antes de começar o desenvolvimento de determinada feature, deve-se criar uma branch para ela:
+
+```bash
+git checkout -b nomeDaFeature
+```
+
+Para checar em qual branch você está, utilize:
+
+```bash
+git branch
+```
+
+### Sincronizando com a main e fazendo o push para a branch
+
+Quando terminar sua feature e **tiver testado para checar se está funcionando** siga o seguinte fluxo para o upload:
+
+1. Cheque a branch que você está. Ela deve ser a branch da sua feature. Caso não esteja nela, utilize o seguinte comando para mudar de branch:
+
+```bash
+git checkout nomeDaFeature
+```
+
+2. Sincronize com a main e faça o `rebase` com a main:
+
+```bash
+git pull origin main
+git rebase main
+```
+
+3. Resolva os conflitos, se tiverem. Sua IDE vai te ajudar nisso.
+
+4. Suba as mudanças para a branch da sua feature:
+
+```bash
+git push origin minha-feature --force
+```
+
+**Nota:** Sempre tome cuidado ao usar o --force. Nesse caso ele é necessário pois altera o histórico dos commits.
+
+***JAMAIS, SOB HIPÓTESE NENHUMA UTILIZE `--force` QUANDO ESTIVER NA BRANCH MAIN. NUNCA.**
+
+5. Vá no repo no GitHub e crie um pull request da branch da sua feature para a branch main.
+
+6. O PR vai ser revisado por alguém da equipe e posteriormente mergeado na main.
+
 **Se necessário mais detalhes, colocarei aqui depois**
 
 ## Backend
