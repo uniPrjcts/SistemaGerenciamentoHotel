@@ -21,13 +21,13 @@ Trabalho da Universidade Estadual de Ponta Grossa sobre um sistema de Gerenciame
 Para obter uma cópia do repositório na sua máquina local, use o comando no diretório em que deseja instalar:
 
 ```bash
-    git clone https://github.com/uniPrjcts/SistemaGerenciamentoHotel.git
+git clone https://github.com/uniPrjcts/SistemaGerenciamentoHotel.git
 ```
 
 Em seguida navegue até ele:
 
 ```bash
-    cd SistemaGerenciamentoHotel
+cd SistemaGerenciamentoHotel
 ```
 
 Para instalar as dependências do projeto, siga os passos abaixo:
