@@ -117,7 +117,7 @@ git push origin minha-feature --force
 
 **Nota:** Sempre tome cuidado ao usar o --force. Nesse caso ele é necessário pois altera o histórico dos commits.
 
-***JAMAIS, SOB HIPÓTESE NENHUMA UTILIZE `--force` QUANDO ESTIVER NA BRANCH MAIN. NUNCA.**
+**JAMAIS, SOB HIPÓTESE NENHUMA UTILIZE `--force` QUANDO ESTIVER NA BRANCH MAIN. NUNCA.**
 
 5. Vá no repo no GitHub e crie um pull request da branch da sua feature para a branch main.
 
@@ -177,8 +177,10 @@ Na pasta `components`, você encontrará componentes reutilizáveis do React que
 
 Foram instanciados dois usuários de teste principais, serve como lembrete:
 
--`admin` - usuário admin
--`clown` - usuário comum
+- `admin` - usuário admin
+- `clown` - usuário comum
+
+A senha foi passada pessoalmente.
 
 ## Licença
 
