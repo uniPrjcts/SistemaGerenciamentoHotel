@@ -18,8 +18,8 @@ const Reserva = ({ setOpen, hotelId }) => {
 
   useEffect(() => {
     if (error) {
-      console.error("Error fetching room data:", error);
-      setFetchError("Failed to load room data. Please try again.");
+      console.error("Erro no fetch do quarto:", error);
+      setFetchError("Falhou em dar load nos dados dos quartos, tente novamente.");
     }
   }, [error]);
 
@@ -71,8 +71,8 @@ const Reserva = ({ setOpen, hotelId }) => {
       setOpen(false);
       navigate("/");
     } catch (err) {
-      console.error("Error during reservation:", err);
-      alert("Failed to make reservation. Please try again.");
+      console.error("Erro durante reserva:", err);
+      alert("Falhou em fazer a reserva, tente novamente.");
     }
   };
 

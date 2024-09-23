@@ -23,8 +23,15 @@ const Login = () => {
         dispatch({ type: "LOGIN_START" });
         try {
             const res = await axios.post("/api/auth/login", credentials);
-            dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-            navigate("/");
+
+
+            if (res.data.isAdmin) {
+                navigate("/admin");
+                dispatch({ type: "LOGIN_SUCCESS", payload: { ...res.data.details, isAdmin: res.data.isAdmin } });
+            } else {
+                navigate("/");
+                dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
+            }
         } catch (err) {
             dispatch({ type: "LOGIN_FAILURE", payload: err.response?.data });
         }
