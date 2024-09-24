@@ -12,6 +12,11 @@ Trabalho da Universidade Estadual de Ponta Grossa sobre um sistema de Gerenciame
 - [Frontend](#frontend)
   - [Pages](#pages)
   - [Components](#components)
+- [Módulos do Sistema](#módulos-do-sistema)
+  - [Módulo de Reservas](#módulo-de-reservas)
+  - [Módulo de Cadastro de Clientes](#módulo-de-cadastro-de-clientes)
+  - [Módulo de Pagamento](#módulo-de-pagamento)
+  - [Módulo de Check-in](#módulo-de-check-in)
 - [Usuários de teste](#usuários-de-teste)
 
 ## Instalação
@@ -172,6 +177,26 @@ Na pasta `components`, você encontrará componentes reutilizáveis do React que
 - `propertyList` – Lista de propriedades disponíveis.
 - `reserva` – Componente para reservas de quartos.
 - `searchItem` – Item de pesquisa para filtros.
+
+## Módulos do Sistema
+
+### Módulo de Reservas
+
+O módulo de reserva é composto por dois principais arquivos `Hotel.jsx` e `Reserva.jsx`. As datas de reserva inseridas pelo usuário são passadas para a página por meio de um hook de contexto e é usado uma função para calcular o tempo transcorrido entre o primeiro dia e o último para então ser exibido ao usuário. No `Reserva.jsx`, esse intervalo é usado para comparar com as datas ocupadas. Assim, é exibido os quartos disponíveis de acordo com as datas de hospedagem, para que o usuário selecione.
+
+**Nota:** Sujeito a mudanças!
+
+### Módulo de Cadastro de Clientes
+
+O módulo de cadastro de clientes é gerenciado através do endpoint `/register`, utilizando das informações inseridas pelo cliente na página `Register.jsx`.
+
+### Módulo de Pagamento
+
+O módulo de pagamento utiliza da integração da API do PagSeguro. O processo específico para a integração está a ser decidido.
+
+### Módulo de Check-in
+
+O módulo de check-in é validado pelo recepcionista. Ou seja, ele utiliza uma página específica para esse processo (provavelmente `adminCheckIn`), podendo confirmar o check-in dos hóspedes. Essa página é acessada através da `adminHome`, página que o admin é redirecionado após fazer login.
 
 ## Usuários de teste
 
