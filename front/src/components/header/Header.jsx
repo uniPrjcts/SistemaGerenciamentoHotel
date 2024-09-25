@@ -74,7 +74,7 @@ const Header = ({type}) => {
                 </div>
                 { type !== "list" && <><h1 className="headerTitle">Venha relaxar conosco.</h1>
                 <p className="headerDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore consequatur dolore, illo unde nemo inventore.</p>
-                {!user && <button className="headerButton">Sign up / Login</button>}
+                {!user && <button className="headerButton" onClick={() => navigate("/login")}>Sign up / Login</button>}
                 <div className="headerSearch">
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faBed} className="headerIcon" />

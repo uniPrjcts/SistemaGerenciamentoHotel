@@ -1,16 +1,18 @@
 import { useContext } from "react";
 import "./navbar.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const disponivel = location.pathname !== '/login' && location.pathname !== '/register';
 
     const handleClick = (type) => {
 
         if (type === "s") {
-            // handle sign in   
+            navigate("/register");
             return;
         }
 
@@ -23,7 +25,7 @@ const Navbar = () => {
                 <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
                     <span className="logo">massante</span>
                 </Link>
-                {user ? user.username : <div className="navItems">
+                {user ? disponivel && user.username : disponivel && <div className="navItems">
                     <button className="navButton" onClick={() => handleClick("s")}>Sign up</button>
                     <button className="navButton" onClick={() => handleClick("l")}>Login</button>
                 </div>}

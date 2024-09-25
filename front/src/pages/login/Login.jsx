@@ -3,6 +3,8 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.css";
+import Navbar from "../../components/navbar/Navbar";
+import FormField from "../../components/forms/FormField";
 
 const Login = () => {
     const [credentials, setCredentials] = useState({
@@ -39,26 +41,34 @@ const Login = () => {
 
     return (
         <div className="login">
+            <Navbar/>
+            <div className="titulo"><h2>Login</h2></div>
             <div className="lContainer">
-                <input
-                    type="text"
-                    placeholder="username"
-                    id="username"
+                <FormField 
+                    type="text" 
+                    id="username" 
+                    placeholder="username" 
+                    label="Username:" 
+                    required={true} 
                     onChange={handleChange}
-                    className="lInput"
                 />
-                <input
-                    type="password"
-                    placeholder="senha"
-                    id="senha"
+                <FormField 
+                    type="password" 
+                    id="senha" 
+                    placeholder="senha" 
+                    label="Senha:" 
+                    required={true} 
                     onChange={handleChange}
-                    className="lInput"
                 />
                 <button disabled={loading} onClick={handleClick} className="lButton">
                     Login
                 </button>
-                {error && <span>{error.message}</span>}
+                {error && <span className="erro">{error.message}</span>}
             </div>
+            <p className="linkRegister">
+                    Não tem conta?{" "}
+                    <span onClick={() =>navigate("/register")}>Faça registro</span>
+            </p>
         </div>
     );
 };
