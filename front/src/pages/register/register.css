@@ -1,13 +1,12 @@
-.register{
+.register {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
 }
 
-.register-form{
+.register-form {
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -17,7 +16,7 @@
     background-color: #edf1f0;
 }
 
-.register-form button{
+.register-form>button {
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -27,19 +26,21 @@
     cursor: pointer;
     font-size: 16px;
 }
-.register-form button:hover{
+
+.register-formrbutton:hover {
     background-color: #422cc0;
 }
 
-.linkLogin{
+.linkLogin {
     margin-top: 15px;
     font-size: 15px;
 }
 
-.linkLogin span{
+.linkLogin>span {
     cursor: pointer;
     color: #3D67F5;
 }
-.linkLogin span:hover{
+
+.linkLogin>span:hover {
     text-decoration: underline;
 }

@@ -28,6 +28,24 @@ const AuthReducer = (state, action) => {
         loading: false,
         error: action.payload,
       };
+    case 'REGISTER_START':
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+    case 'REGISTER_SUCCESS':
+      return {
+        user: null,
+        loading: false,
+        error: null
+      };
+    case 'REGISTER_FAILURE':
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      };
     case 'LOGOUT':
       return {
         user: null,
@@ -48,6 +66,11 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);
 
+    const logout = () => {
+        dispatch({ type: 'LOGOUT' });
+        localStorage.removeItem("user");
+    };
+
   return (
     <AuthContext.Provider
       value={{
@@ -55,6 +78,7 @@ export const AuthContextProvider = ({ children }) => {
         loading: state.loading,
         error: state.error,
         dispatch,
+        logout,
       }}
     >
       {children}

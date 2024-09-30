@@ -8,10 +8,12 @@ Trabalho da Universidade Estadual de Ponta Grossa sobre um sistema de Gerenciame
   - [Models](#models)
   - [Routes](#routes)
   - [Controllers](#controllers)
+  - [Bibliotecas e dependências](#bibliotecas-e-dependências)
 - [Mantendo o repo](#mantendo-o-repo)
 - [Frontend](#frontend)
   - [Pages](#pages)
   - [Components](#components)
+  - [Bibliotecas e dependências](#bibliotecas-e-dependências)
 - [Módulos do Sistema](#módulos-do-sistema)
   - [Módulo de Reservas](#módulo-de-reservas)
   - [Módulo de Cadastro de Clientes](#módulo-de-cadastro-de-clientes)
@@ -155,6 +157,24 @@ Na pasta `controllers`, você encontrará a lógica que controla as operações 
 - `quartos.js` – Funções para manipulação de dados de quartos.
 - `user.js` – Funções para manipulação de dados de usuários.
 
+### Bibliotecas e dependências
+
+No Backend, utilizamos diversas bibliotecas que facilitam o desenvolvimento e a manutenção do sistema:
+
+- **Express**: Framework minimalista para Node.js que simplifica a criação de APIs e o gerenciamento de rotas. Ele permite uma estrutura mais organizada e legível, essencial para um sistema de gerenciamento como o de hotéis.
+
+- **Mongoose**: Uma biblioteca para modelar dados MongoDB em Node.js. Ela fornece uma solução para interagir com o banco de dados, definindo esquemas e validando dados, o que é crucial para garantir a integridade das informações dos clientes e reservas.
+
+- **jsonwebtoken**: Utilizada para implementar autenticação e autorização. Essa biblioteca permite a criação de tokens seguros, facilitando o controle de acesso dos usuários ao sistema.
+
+- **bcryptjs**: Para criptografia de senhas, garantindo que as informações sensíveis dos usuários sejam armazenadas de forma segura.
+
+- **cors**: Middleware que permite o compartilhamento de recursos entre diferentes domínios, essencial para permitir que o frontend acesse a API.
+
+- **dotenv**: Facilita o gerenciamento de variáveis de ambiente, mantendo informações sensíveis como credenciais de banco de dados fora do código-fonte.
+
+- **nodemon**: Ferramenta que reinicia automaticamente o servidor durante o desenvolvimento, economizando tempo e melhorando a produtividade.
+
 ## Frontend
 
 ### Pages
@@ -177,6 +197,24 @@ Na pasta `components`, você encontrará componentes reutilizáveis do React que
 - `propertyList` – Lista de propriedades disponíveis.
 - `reserva` – Componente para reservas de quartos.
 - `searchItem` – Item de pesquisa para filtros.
+
+### Bibliotecas e dependências
+
+No Frontend, as seguintes bibliotecas foram escolhidas para otimizar a experiência do usuário e a produtividade do desenvolvimento:
+
+- **React**: Framework JavaScript para construir interfaces de usuário. Sua abordagem baseada em componentes permite a criação de uma UI reativa e dinâmica, essencial para um sistema interativo como o de gerenciamento de hotéis.
+
+- **React Router Dom**: Usado para gerenciar rotas no aplicativo React, permitindo uma navegação fluida entre diferentes páginas sem recarregar a aplicação.
+
+- **Axios**: Biblioteca para fazer requisições HTTP, facilitando a comunicação com a API do backend. Ela é usada para buscar dados de hotéis, realizar reservas e gerenciar a autenticação.
+
+- **date-fns**: Uma biblioteca leve para manipulação de datas, que simplifica operações como formatação e cálculo de intervalos de datas, essenciais para o módulo de reservas.
+
+- **react-date-range**: Utilizada para criar seletores de data interativos, permitindo que os usuários escolham facilmente as datas de suas reservas.
+
+- **Font Awesome**: Para ícones, que melhoram a estética e a usabilidade da interface do usuário.
+
+- **Vite**: Ferramenta de construção que proporciona um ambiente de desenvolvimento rápido e eficiente, otimizando o tempo de inicialização e hot-reload.
 
 ## Módulos do Sistema
 

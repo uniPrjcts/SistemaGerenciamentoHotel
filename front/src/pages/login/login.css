@@ -5,7 +5,7 @@
   justify-content: center;
 }
 
-.titulo{
+.titulo {
   margin-top: 50px;
 }
 
@@ -19,7 +19,7 @@
   background-color: #edf1f0;
 }
 
-.lInput{
+.lInput {
   height: 30px;
   padding: 10px;
 }
@@ -34,28 +34,30 @@
   cursor: pointer;
   font-size: 16px;
 }
-.lButton button:hover{
+
+.lButton button:hover {
   background-color: #422cc0;
 }
 
-.lButton:disabled{
+.lButton:disabled {
   background-color: #583bff;
   cursor: not-allowed;
 }
 
-
-.linkRegister{
+.linkRegister {
   margin-top: 15px;
   font-size: 15px;
 }
-.linkRegister span{
+
+.linkRegister>span {
   cursor: pointer;
   color: #3D67F5;
 }
-.linkRegister span:hover{
+
+.linkRegister>span:hover {
   text-decoration: underline;
 }
 
-.erro{
+.erro {
   font-size: 15px;
 }

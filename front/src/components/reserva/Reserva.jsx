@@ -13,7 +13,6 @@ const Reserva = ({ setOpen, hotelId }) => {
   const { dates } = useContext(SearchContext);
   const navigate = useNavigate();
 
-  // Atualize a URL da API para apontar para o backend
   const { data, loading, error } = useFetch(`http://localhost:8800/api/hotels/quarto/${hotelId}`);
 
   useEffect(() => {

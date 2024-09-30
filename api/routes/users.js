@@ -13,17 +13,4 @@ router.get("/:id", verifyUser, getUser);
 // Get todos Users
 router.get("/", verifyAdmin, getUsers);
 
-// // Autenticar o usuário
-// router.get("/checkauthentication", verifyToken, (req, res, next) => {
-//     res.send("Usuário autenticado com sucesso.");
-// });
-// // Verificar o usuário para deletar a conta
-// router.get("/checkuser/:id", verifyUser, (req, res, next) => {
-//     res.send("Usuário autenticado com sucesso. Pode deletar sua conta.");
-// });
-// // Verificar o admin para poder deletar qualquer conta
-// router.get("/checkadmin/:id", verifyAdmin, (req, res, next) => {
-//     res.send("Admin autenticado com sucesso. Pode deletar todas as contas que quiser.");
-// });
-
 export default router;

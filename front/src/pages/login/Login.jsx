@@ -41,33 +41,33 @@ const Login = () => {
 
     return (
         <div className="login">
-            <Navbar/>
+            <Navbar />
             <div className="titulo"><h2>Login</h2></div>
             <div className="lContainer">
-                <FormField 
-                    type="text" 
-                    id="username" 
-                    placeholder="username" 
-                    label="Username:" 
-                    required={true} 
+                <FormField
+                    type="text"
+                    id="username"
+                    placeholder="username"
+                    label="Username:"
+                    required={true}
                     onChange={handleChange}
                 />
-                <FormField 
-                    type="password" 
-                    id="senha" 
-                    placeholder="senha" 
-                    label="Senha:" 
-                    required={true} 
+                <FormField
+                    type="password"
+                    id="senha"
+                    placeholder="senha"
+                    label="Senha:"
+                    required={true}
                     onChange={handleChange}
                 />
-                <button disabled={loading} onClick={handleClick} className="lButton">
+                <button onClick={handleClick} className="lButton">
                     Login
                 </button>
                 {error && <span className="erro">{error.message}</span>}
             </div>
             <p className="linkRegister">
-                    Não tem conta?{" "}
-                    <span onClick={() =>navigate("/register")}>Faça registro</span>
+                Não tem conta?{" "}
+                <span onClick={() => navigate("/register")}>Faça registro</span>
             </p>
         </div>
     );
