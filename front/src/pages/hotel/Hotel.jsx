@@ -19,7 +19,7 @@ const Hotel = () => {
     const location = useLocation();
     const id = location.pathname.split("/")[2];
 
-    const { data, loading, error } = useFetch(`/api/hotels/find/${id}`);
+    const { data: hotelData, loading, error } = useFetch(`/api/hotels/find/${id}`);
 
     const { dates, options } = useContext(SearchContext);
     const { user } = useContext(AuthContext);
@@ -45,9 +45,9 @@ const Hotel = () => {
         let newSlideNum;
 
         if (direction === "l") {
-            newSlideNum = slideNum === 0 ? data.fotos.length - 1 : slideNum - 1;
+            newSlideNum = slideNum === 0 ? hotelData.fotos.length - 1 : slideNum - 1;
         } else {
-            newSlideNum = slideNum === data.fotos.length - 1 ? 0 : slideNum + 1;
+            newSlideNum = slideNum === hotelData.fotos.length - 1 ? 0 : slideNum + 1;
         }
 
         setSlideNum(newSlideNum);
@@ -70,25 +70,25 @@ const Hotel = () => {
                     <FontAwesomeIcon icon={faCircleXmark} className="close" onClick={() => setOpen(false)} />
                     <FontAwesomeIcon icon={faCircleArrowLeft} className="arrow left" onClick={() => handleMove("l")} />
                     <div className="sliderWrapper">
-                        <img src={data.fotos[slideNum]} alt="" className="sliderImg" />
+                        <img src={hotelData.fotos[slideNum]} alt="" className="sliderImg" />
                     </div>
                     <FontAwesomeIcon icon={faCircleArrowRight} className="arrow right" onClick={() => handleMove("r")} />
                 </div>}
                 <div className="hotelWrapper">
                     <button onClick={handleClick} className="reserveAgora">Reserve agora!</button>
-                    <h1 className="hotelTitle">{data.nome}</h1>
+                    <h1 className="hotelTitle">{hotelData.nome}</h1>
                     <div className="hotelEndereco">
                         <FontAwesomeIcon icon={faLocationDot} />
-                        <span>{data.endereco}</span>
+                        <span>{hotelData.endereco}</span>
                     </div>
                     <span className="hotelDistance">
-                        {data.distancia} do centro
+                        {hotelData.distancia} do centro
                     </span>
                     <span className="hotelPrecoMaisBaixo">
-                        Preços a partir de {data.taxa_base}
+                        Preços a partir de {hotelData.taxa_base}
                     </span>
                     <div className="hotelImgs">
-                        {(data.fotos || []).map((foto, i) => (
+                        {(hotelData.fotos || []).map((foto, i) => (
                             <div className="hotelImgWrapper" key={i} >
                                 <img
                                     onClick={() => handleOpen(i)}
@@ -101,8 +101,8 @@ const Hotel = () => {
                     </div>
                     <div className="hotelDetails">
                         <div className="hotelDetailsText">
-                            <h1 className="hotelTitle">{data.nome}</h1>
-                            <p className="hotelDesc">{data.desc}</p>
+                            <h1 className="hotelTitle">{hotelData.nome}</h1>
+                            <p className="hotelDesc">{hotelData.desc}</p>
                         </div>
                         <div className="hotelDetailsPreco">
                             <h1>Reserva perfeita para um sossego de {dias} dias!</h1>
@@ -110,7 +110,7 @@ const Hotel = () => {
                                 Info sobre a localização e esse tipo de coisa.
                             </span>
                             <h2>
-                                <b>R${dias * data.taxa_base * (options.adultos + options.criancas)},00</b> por {dias} noites <span className="wTaxes">sem impostos</span>
+                                <b>R${dias * hotelData.taxa_base * (options.adultos + options.criancas)},00</b> por {dias} noites <span className="wTaxes">sem impostos</span>
                             </h2>
                             <button onClick={handleClick}>Reserve agora!</button>
                         </div>
@@ -119,7 +119,7 @@ const Hotel = () => {
                 <MailList />
                 <Footer />
             </div></>)}
-            {openModal && <Reserva setOpen={setOpenModal} hotelId={id} />}
+            {openModal && <Reserva setOpen={setOpenModal} hotelId={id} user={user} hotel={hotelData} />}
         </div >
     );
 }

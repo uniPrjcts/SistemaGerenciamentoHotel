@@ -11,10 +11,14 @@
     gap: 10px;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .fpImg {
     width: 100%;
+    height: 250px;
 }
 
 .fpNome {

@@ -14,7 +14,7 @@ export const criarHotel = async (req, res, next) => {
 
 export const atualizarHotel = async (req, res, next) => {
     try {
-        const hotelAtualizado = await Hotel.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true});
+        const hotelAtualizado = await Hotel.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
         res.status(200).json(hotelAtualizado);
     } catch (error) {
         next(err);
@@ -40,12 +40,12 @@ export const getHotel = async (req, res, next) => {
 };
 
 export const getHoteis = async (req, res, next) => {
-    const {min, max, ...others} = req.query;
+    const { min, max, ...others } = req.query;
     try {
         const hoteis = await Hotel.find({
             ...others,
             taxa_base: { $gt: min || 1, $lt: max || 999 },
-          }).limit(req.query.limit);
+        }).limit(req.query.limit);
         res.status(200).json(hoteis);
     } catch (error) {
         next(err);
@@ -56,7 +56,7 @@ export const countByCity = async (req, res, next) => {
     const cidades = req.query.cidades.split(",");
     try {
         const list = await Promise.all(cidades.map(cidade => {
-            return Hotel.countDocuments({cidade: cidade});
+            return Hotel.countDocuments({ cidade: cidade });
         }));
         res.status(200).json(list);
     } catch (error) {
@@ -71,9 +71,9 @@ export const countByType = async (req, res, next) => {
         const cambalachoCount = await Hotel.countDocuments({ tipo: "cambalacho" });
 
         res.status(200).json([
-            { tipo: "Hotel interiorano", count: interioranoCount },
-            { tipo: "Hotel praiano", count: praianoCount },
-            { tipo: "Hotel cambalacho", count: cambalachoCount },
+            { tipo: "interiorano", count: interioranoCount },
+            { tipo: "praiano", count: praianoCount },
+            { tipo: "cambalacho", count: cambalachoCount },
         ]);
     } catch (err) {
         next(err);

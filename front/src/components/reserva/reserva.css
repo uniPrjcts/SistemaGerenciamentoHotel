@@ -57,7 +57,7 @@
     font-weight: 500;
 }
 
-.rSelectRooms{
+.rSelectRooms {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -65,7 +65,7 @@
     color: gray;
 }
 
-.quarto{
+.quarto {
     display: flex;
     flex-direction: column;
 }
@@ -80,4 +80,18 @@
     border-radius: 5px;
     width: 100%;
     margin-top: 20px;
+}
+
+
+.rButton:disabled {
+    border: none;
+    padding: 10px 20px;
+    background-color: #999;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 20px;
+    transition: ease 0.2s;
 }

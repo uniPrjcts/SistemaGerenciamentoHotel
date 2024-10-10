@@ -14,7 +14,7 @@ import { AuthContext } from "./context/AuthContext";
 import Register from "./pages/register/Register";
 import AdminList from "./pages/adminList/AdminList";
 import New from "./pages/new/New";
-import { hotelsColumns, quartosColumns, userColumns } from "./components/datatable/Datatablemodel";
+import { hotelsColumns, quartosColumns, reservaColumns, userColumns } from "./components/datatable/Datatablemodel";
 
 function App() {
 
@@ -50,7 +50,7 @@ function App() {
                     <Route path="new" element={<New />} />
                 </Route>
                 <Route path="/admin/reservas">
-                    <Route index element={<ProtectedRoute><AdminList columns={"erro"} /></ProtectedRoute>} />
+                    <Route index element={<ProtectedRoute><AdminList columns={reservaColumns} /></ProtectedRoute>} />
                     <Route path="new" element={<New />} />
                 </Route>
                 <Route path="/" element={<Home />} />

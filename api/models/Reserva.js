@@ -19,6 +19,18 @@ const ReservaSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  username: {
+    type: String,
+    ref: 'User',
+  },
+  nome: {
+    type: String,
+    ref: 'Hotel',
+  },
+  titulo: {
+    type: String,
+    ref: 'Quarto',
+  },
 }, { timestamps: true });
 
-module.exports = mongoose.model('Reserva', ReservaSchema);
+export default mongoose.model('Reserva', ReservaSchema);

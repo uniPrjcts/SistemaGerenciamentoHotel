@@ -5,6 +5,7 @@ import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
 import quartosRoute from "./routes/quartos.js";
+import reservasRoute from "./routes/reservas.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -38,6 +39,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/quartos", quartosRoute);
+app.use("/api/reservas", reservasRoute);
 
 app.use((err, req, res, next)=>{
     const errorStatus = err.status || 500;

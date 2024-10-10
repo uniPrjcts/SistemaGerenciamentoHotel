@@ -20,13 +20,7 @@ const QuartoSchema = new mongoose.Schema({
     numeroQuarto: {
         type: Number,
         required: true,
-        unique: true
     },
-    datasOcupado: {
-        type: [Date],
-        default: []
-    },
-},
-{timestamps: true});
+}, { timestamps: true });
 
 export default mongoose.model("Quarto", QuartoSchema);

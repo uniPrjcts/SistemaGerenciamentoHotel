@@ -7,18 +7,18 @@ const useFetch = (url) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-    const fetchData = async () => {
-        setLoading(true);
-        try {
-            const res = await axios.get(url);
-            setData(res.data);
-            setError(null);
-        } catch (err) {
-            setError(err);
-        }
-        setLoading(false);
-    };
-    fetchData();
+        const fetchData = async () => {
+            setLoading(true);
+            try {
+                const res = await axios.get(url);
+                setData(res.data);
+                setError(null);
+            } catch (err) {
+                setError(err);
+            }
+            setLoading(false);
+        };
+        fetchData();
     }, [url]);
 
     const reFetch = async () => {
@@ -28,7 +28,7 @@ const useFetch = (url) => {
             setData(res.data);
             setError(null);
         } catch (err) {
-            setErrorerror(err);
+            setError(err);
         }
         setLoading(false);
     };

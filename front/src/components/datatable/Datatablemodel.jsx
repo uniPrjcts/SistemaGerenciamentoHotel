@@ -58,6 +58,64 @@ export const quartosColumns = [
   },
 ];
 
+export const reservaColumns = [
+  { field: "_id", headerName: "ID", width: 230 },
+  {
+    field: "username",
+    headerName: "Usuário",
+    width: 100,
+    renderCell: (params) => {
+      return params.row.username || 'Indisponível';
+    },
+  },
+  {
+    field: "nome",
+    headerName: "Hotel",
+    width: 150,
+    renderCell: (params) => {
+      return params.row.nome || 'Indisponível';
+    },
+  },
+  {
+    field: "titulo",
+    headerName: "Quarto",
+    width: 150,
+    renderCell: (params) => {
+      return params.row.titulo || 'Indisponível';
+    },
+  },
+  {
+    field: "checkIn",
+    headerName: "Check In",
+    width: 100,
+    renderCell: (params) => {
+      const date = new Date(params.row.checkIn);
+      return date instanceof Date && !isNaN(date)
+        ? date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: '2-digit', }) : 'Indisponível';
+    },
+  },
+  {
+    field: "checkOut",
+    headerName: "Check Out",
+    width: 100,
+    renderCell: (params) => {
+      const date = new Date(params.row.checkOut);
+      return date instanceof Date && !isNaN(date)
+        ? date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: '2-digit', }) : 'Indisponível';
+    },
+  },
+  //{
+  //  field: "userId",
+  //  headerName: "User",
+  //  width: 230,
+  //},
+  //{
+  //  field: "quartoId",
+  //  headerName: "Quarto",
+  //  width: 230,
+  //},
+];
+
 // separado para as reservas
 //{
 //  field: "status",
