@@ -220,7 +220,7 @@ No Frontend, as seguintes bibliotecas foram escolhidas para otimizar a experiên
 
 ### Módulo de Reservas
 
-O módulo de reserva é composto por dois principais arquivos `Hotel.jsx` e `Reserva.jsx`. As datas de reserva inseridas pelo usuário são passadas para a página por meio de um hook de contexto e é usado uma função para calcular o tempo transcorrido entre o primeiro dia e o último para então ser exibido ao usuário. No `Reserva.jsx`, esse intervalo é usado para comparar com as datas ocupadas. Assim, é exibido os quartos disponíveis de acordo com as datas de hospedagem, para que o usuário selecione.
+O módulo de reserva é composto por dois principais arquivos `Hotel.jsx` e `Reserva.jsx`. As datas de reserva inseridas pelo usuário são passadas para a página por meio de um hook de contexto e é usado uma função para calcular o tempo transcorrido entre o primeiro dia e o último para então ser exibido ao usuário. No `Reserva.jsx`, esse intervalo é usado para comparar com as datas ocupadas. Assim, é exibido os quartos disponíveis de acordo com as datas de hospedagem, para que o usuário selecione. O `Header.jsx` garante que o número máximo de quartos hospedados seja igual ao número de adultos.
 
 **Nota:** Sujeito a mudanças!
 
@@ -234,7 +234,7 @@ O módulo de pagamento utiliza da integração da API do PagSeguro. O processo e
 
 ### Módulo de Check-in
 
-O módulo de check-in é validado pelo recepcionista. Ou seja, ele utiliza uma página específica para esse processo (provavelmente `adminCheckIn`), podendo confirmar o check-in dos hóspedes. Essa página é acessada através da `adminHome`, página que o admin é redirecionado após fazer login.
+O módulo de check-in é validado pelo recepcionista. Ou seja, ele utiliza um painel específico para esse processo, podendo confirmar o check-in dos hóspedes. Esse painel é acessado através da `adminHome`, página que o admin é redirecionado após fazer login, que também exibe informações de usuários, hotéis e quartos através do `datatable`. No entanto, o admin não possui a capacidade de deletar nenhuma dessas informações.
 
 ## Usuários de teste
 

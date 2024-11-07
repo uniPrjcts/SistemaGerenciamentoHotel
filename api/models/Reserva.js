@@ -31,6 +31,11 @@ const ReservaSchema = new mongoose.Schema({
     type: String,
     ref: 'Quarto',
   },
+  status: {
+    type: String,
+    ref: 'Status',
+    default: 'pendente',
+  },
 }, { timestamps: true });
 
 export default mongoose.model('Reserva', ReservaSchema);

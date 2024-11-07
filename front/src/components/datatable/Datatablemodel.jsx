@@ -104,6 +104,18 @@ export const reservaColumns = [
         ? date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: '2-digit', }) : 'Indisponível';
     },
   },
+  {
+    field: "status",
+    headerName: "Status",
+    width: 160,
+    renderCell: (params) => {
+      return (
+       <div className={`cellStatus ${params.row.status}`}>
+          {params.row.status || 'pendente'} 
+        </div>
+      ) ;
+    },
+  },
   //{
   //  field: "userId",
   //  headerName: "User",
