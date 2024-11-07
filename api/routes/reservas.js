@@ -7,6 +7,8 @@ const router = express.Router();
 router.post("/", criarReserva);
 //Atualizar reserva
 router.put("/:id", atualizarReserva);
+// Atualizar reserva parcial
+router.patch("/:id", atualizarReserva);
 //Deletar reserva
 router.delete("/:id", deletarReserva);
 //Get reserva
