@@ -107,13 +107,14 @@ export const reservaColumns = [
   {
     field: "status",
     headerName: "Status",
-    width: 160,
+    width: 120,
     renderCell: (params) => {
+      const statusClass = params.row.status ? params.row.status : 'pendente';
       return (
-       <div className={`cellStatus ${params.row.status}`}>
-          {params.row.status || 'pendente'} 
+        <div className={`cellStatus ${statusClass}`}>
+          {params.row.status || 'Pendente'}
         </div>
-      ) ;
+      );
     },
   },
   //{

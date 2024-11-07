@@ -33,7 +33,6 @@ const ReservaSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    ref: 'Status',
     default: 'pendente',
   },
 }, { timestamps: true });

@@ -28,10 +28,14 @@ const Datatable = ({ columns }) => {
         }
     }
 
-    const handleConfirm = async (id) => { //mermao essa porra n funciona fica dando 404
+    const handleConfirm = async (id) => {
         try {
-            await axios.patch(`/api/${path}/${id}`, {status: 'ativa'});
-            setList(list.filter((item) => item._id !== id));
+            await axios.patch(`/api/${path}/${id}`, { status: 'ativa' });
+            setList((prevList) =>
+                prevList.map((item) =>
+                    item._id === id ? { ...item, status: 'ativa' } : item
+                )
+            );
         } catch (err) {
             console.log("Erro na confirmação!");
         }
@@ -43,7 +47,6 @@ const Datatable = ({ columns }) => {
                 return (
                     <div className="cellAction">
                         <div className="viewButton"><FontAwesomeIcon icon={faEye} /></div>
-                        <div className="deleteButton"><FontAwesomeIcon icon={faTrash} onClick={() => handleDelete(params.row._id)} /></div>
                     </div>
                 )
             }
@@ -69,7 +72,6 @@ const Datatable = ({ columns }) => {
                     <div className="cellAction">
                         <div className="confirmButton"><FontAwesomeIcon icon={faCheck} onClick={() => handleConfirm(params.row._id)} /></div>
                         <div className="viewButton"><FontAwesomeIcon icon={faEye} /></div>
-                        <div className="deleteButton"><FontAwesomeIcon icon={faTrash} onClick={() => handleDelete(params.row._id)} /></div>
                     </div>
                 )
             }
